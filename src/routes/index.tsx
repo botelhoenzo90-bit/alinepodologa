@@ -126,7 +126,7 @@ function Index() {
         <div className="aline-service-window"><div className="aline-service-track">
           {[...services,...services].map((service,i)=><article className="aline-service-card" key={service.title+"-"+i}>
             <div className="aline-service-image"><img src={service.image} alt={service.title} loading="lazy" onError={e=>{e.currentTarget.style.display="none"}}/></div>
-            <div className="aline-service-copy"><span>0{(i%services.length)+1}</span><h3>{service.title}</h3><p>{service.text}</p></div>
+            <div className="aline-service-copy"><h3>{service.title}</h3><p>{service.text}</p></div>
           </article>)}
         </div></div>
         <div className="aline-service-cta"><Button onClick={() => book("Olá, Aline! Gostaria de saber mais sobre os procedimentos de podologia e agendar um horário.")}>Quero agendar <ArrowRight size={17}/></Button></div>
