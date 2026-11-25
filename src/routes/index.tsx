@@ -97,7 +97,7 @@ function Index() {
 
       <section className="aline-section aline-about" id="sobre">
         <div className="aline-container aline-about-grid">
-          <div className="aline-about-visual"><div className="aline-about-icon"><Footprints size={76}/></div><span>ALINE PODÓLOGA</span><small>Cuidado aos seus pés</small></div>
+          <div className="aline-about-visual aline-about-image-placeholder"><span>IMAGEM DA ALINE</span><small>Imagem da Aline será adicionada aqui</small></div>
           <div className="aline-about-copy"><span className="aline-eyebrow">PRAZER, SOU ALINE</span><h2>Um cuidado que começa <em>pela atenção a você.</em></h2>
             <p>A podologia é um cuidado dedicado à saúde dos pés. Meu trabalho é receber cada pessoa com atenção, observar suas necessidades e oferecer um atendimento cuidadoso e individualizado.</p>
             <p>Seja para cuidar de uma unha encravada, de calosidades ou de outras alterações nos pés, o primeiro passo é entender o que você está sentindo e avaliar a melhor forma de cuidar.</p>
