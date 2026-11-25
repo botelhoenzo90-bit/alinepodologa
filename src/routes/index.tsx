@@ -2,12 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   ArrowRight, Check, ChevronDown, Clock3, Footprints, Heart,
-  MapPin, MessageCircle, ShieldCheck, Star, Instagram
+  MessageCircle, Star, Instagram
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { clinicPhone, clinicWhatsapp } from "@/lib/clinic-contact";
 
-const siteUrl = "https://alinepodologa.com.br";
 const instagram = "https://www.instagram.com/aline_podologa32/";
 
 export const Route = createFileRoute("/")({
@@ -23,7 +22,6 @@ export const Route = createFileRoute("/")({
       { name: "theme-color", content: "#16a6b5" },
       { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: siteUrl }],
   }),
   component: Index,
 });
