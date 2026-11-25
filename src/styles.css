@@ -1614,3 +1614,17 @@ footer .footer-bottom{border-color:#476b56!important}
   .aline-site .aline-marquee-group{gap:14px;padding-inline:16px;font-size:12px}
   .aline-site .aline-homecare{padding-top:32px;padding-bottom:32px}
 }
+
+
+/* Botão da seção de avaliações no mesmo Tiffany dos demais CTAs */
+.aline-site .aline-review-cta button{
+  background:var(--aline)!important;
+  color:#fff!important;
+  border:1px solid var(--aline)!important;
+  box-shadow:0 9px 24px #16a6b52b!important;
+}
+.aline-site .aline-review-cta button:hover{
+  background:var(--aline-dark)!important;
+  border-color:var(--aline-dark)!important;
+  color:#fff!important;
+}
