@@ -1434,3 +1434,62 @@ footer .footer-bottom{border-color:#476b56!important}
 @media(max-width:680px){.aline-container{width:calc(100% - 36px)}.aline-header{height:72px!important;padding:0 16px!important}.aline-header nav{display:none}.aline-brand-icon{width:42px;height:42px}.aline-brand strong{font-size:16px}.aline-brand small{font-size:10px}.aline-site .aline-header-cta{padding:11px 15px;min-height:42px;font-size:12px}.aline-hero{padding:48px 0 58px}.aline-hero-grid{grid-template-columns:1fr;gap:34px}.aline-site h1{font-size:43px}.aline-site h2{font-size:33px}.aline-hero-copy>p{font-size:15px}.aline-hero-actions{gap:14px}.aline-hero-actions>a{font-size:12px}.aline-hero-points{gap:12px}.aline-hero-points span{font-size:11px}.aline-hero-visual{padding:0 8px 16px}.aline-hero-visual>img{height:310px;border-radius:32px}.aline-floating-note{left:-2px;padding:12px 14px}.aline-section{padding:64px 0}.aline-about-grid{grid-template-columns:1fr;gap:30px}.aline-about-visual{min-height:270px}.aline-about-icon{width:120px;height:120px}.aline-about-copy>p{font-size:14px}.aline-benefits{grid-template-columns:1fr;gap:12px}.aline-section-heading{width:calc(100% - 36px);margin-bottom:28px}.aline-section-heading p{font-size:14px}.aline-service-card{width:270px;flex-basis:270px}.aline-service-image{height:185px}.aline-homecare{padding:42px 0}.aline-homecare-inner{grid-template-columns:1fr;gap:16px;text-align:center}.aline-homecare-icon{margin:auto}.aline-homecare h2{font-size:30px}.aline-homecare p{font-size:14px}.aline-site .aline-homecare button{justify-self:center;white-space:normal}.aline-review-card{width:285px;flex-basis:285px;padding:24px}.aline-faq-grid,.aline-contact-grid{grid-template-columns:1fr;gap:34px}.aline-faq-intro p{font-size:14px}.aline-faq-item>button{font-size:14px}.aline-contact{padding:64px 0}.aline-contact-grid>div:first-child>p{font-size:14px}.aline-contact-card{padding:30px 22px}.aline-footer-inner>div{gap:14px 18px}.aline-whatsapp-float{width:56px;height:56px;right:16px;bottom:16px}}
 @media(prefers-reduced-motion:reduce){.aline-marquee-track,.aline-service-track,.aline-review-track{animation:none!important}}
 @media(max-width:680px){.aline-brand-logo{width:36px;height:49px}.aline-hero-logo{width:80px;height:109px}.aline-site .aline-whatsapp-float{width:56px;height:56px;right:16px;bottom:16px}}
+
+
+/* Ajustes solicitados — página Aline Podóloga */
+.aline-site .aline-hero{padding:76px 0 82px}
+.aline-site .aline-hero-grid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center}
+.aline-site .aline-hero-copy{width:min(820px,100%);display:flex;flex-direction:column;align-items:center}
+.aline-site .aline-hero-copy>p{max-width:690px;margin-inline:auto}
+.aline-site .aline-hero-actions,.aline-site .aline-hero-points{justify-content:center}
+.aline-site .aline-hero-shape{right:50%;transform:translateX(50%);top:-380px;width:850px;height:850px}
+.aline-site .aline-marquee-track{animation:aline-marquee 26s linear infinite!important;animation-play-state:running!important;will-change:transform}
+.aline-site .aline-marquee:hover .aline-marquee-track,.aline-site .aline-marquee:focus-within .aline-marquee-track{animation-play-state:running!important}
+.aline-site .aline-service-track{animation:aline-service-scroll 42s linear infinite!important;animation-play-state:running!important;will-change:transform}
+.aline-site .aline-service-window:hover .aline-service-track,.aline-site .aline-service-window:focus-within .aline-service-track{animation-play-state:running!important}
+.aline-site .aline-review-track{animation:aline-review-scroll 38s linear infinite!important;animation-play-state:running!important;will-change:transform}
+.aline-site .aline-review-window:hover .aline-review-track,.aline-site .aline-review-window:focus-within .aline-review-track{animation-play-state:running!important}
+.aline-site .aline-service-card{width:310px;flex-basis:310px}
+.aline-site .aline-service-image{height:220px;background:#e7f7f7}
+.aline-site .aline-service-image img{display:block!important;width:100%;height:100%;object-fit:cover}
+.aline-site .aline-review-disclaimer{width:min(900px,calc(100% - 40px));margin:0 auto;text-align:center;font-size:12px;line-height:1.6;color:#71888b}
+.aline-site .aline-process{background:#effafa}
+.aline-site .aline-process-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.aline-site .aline-process-grid article{position:relative;min-height:245px;padding:30px 26px;background:#fff;border:1px solid var(--aline-line);border-radius:22px;box-shadow:0 10px 30px #075d690b}
+.aline-site .aline-process-grid article>span{position:absolute;top:20px;right:22px;font-size:13px;font-weight:800;letter-spacing:.1em;color:#9acfd2}
+.aline-site .aline-process-grid article>svg{width:34px;height:34px;color:var(--aline);margin-bottom:20px}
+.aline-site .aline-process-grid h3{font-size:21px;font-weight:800;color:var(--aline-deep);margin:0 0 10px}
+.aline-site .aline-process-grid p{font-size:14px;line-height:1.65;margin:0}
+.aline-site .aline-process-action{display:flex;justify-content:center;margin-top:28px}
+.aline-site .aline-process-action button{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;background:var(--aline);color:#fff;padding:15px 24px;font-weight:700;min-height:50px}
+.aline-site .aline-location{background:#fff}
+.aline-site .aline-location-grid{display:grid;grid-template-columns:.8fr 1.2fr;align-items:center;gap:48px}
+.aline-site .aline-location-label{display:flex;align-items:center;gap:13px;margin:26px 0;color:var(--aline)}
+.aline-site .aline-location-label>svg{width:28px;height:28px}
+.aline-site .aline-location-label strong,.aline-site .aline-location-label small{display:block}
+.aline-site .aline-location-label strong{font-size:17px;color:var(--aline-deep)}
+.aline-site .aline-location-label small{font-size:12px;color:var(--aline-muted);margin-top:4px}
+.aline-site .aline-location-grid button{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;background:var(--aline);color:#fff;padding:14px 22px;font-weight:700}
+.aline-site .aline-map-frame{height:390px;overflow:hidden;border-radius:24px;border:1px solid var(--aline-line);box-shadow:0 14px 38px #075d6912}
+.aline-site .aline-map-frame iframe{display:block;width:100%;height:100%;border:0}
+.aline-site .aline-footer{background:#e5f7f7;color:var(--aline-deep);border-top:1px solid var(--aline-line)}
+.aline-site .aline-footer .aline-brand{color:var(--aline-deep)}
+.aline-site .aline-footer .aline-brand small{color:var(--aline)}
+.aline-site .aline-footer p{color:#557579}
+.aline-site .aline-footer a{color:var(--aline-deep)}
+.aline-site .aline-copyright{color:#66878a}
+.aline-site .aline-footer .aline-brand-logo{filter:none}
+@media(max-width:900px){.aline-site .aline-location-grid{grid-template-columns:1fr;gap:28px}.aline-site .aline-map-frame{height:340px}}
+@media(max-width:680px){
+ .aline-site .aline-hero{padding:58px 0 62px}
+ .aline-site .aline-hero-grid{display:flex;flex-direction:column}
+ .aline-site .aline-hero-copy{width:100%}
+ .aline-site .aline-site h1{font-size:40px}
+ .aline-site .aline-process-grid{grid-template-columns:1fr;gap:14px}
+ .aline-site .aline-process-grid article{min-height:0;padding:24px}
+ .aline-site .aline-service-card{width:276px;flex-basis:276px}
+ .aline-site .aline-service-image{height:195px}
+ .aline-site .aline-location-grid{gap:22px}
+ .aline-site .aline-map-frame{height:300px;border-radius:18px}
+ .aline-site .aline-review-disclaimer{font-size:11px}
+}
