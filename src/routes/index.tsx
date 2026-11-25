@@ -33,20 +33,21 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { title: "Unha encravada", text: "Cuidado especializado para unhas que crescem em direção à pele, com avaliação e manejo cuidadoso.", image: "/Tratamento%20Profissional%20de%20Unha%20Encravada.png" },
-  { title: "Unha inflamada", text: "Avaliação da região avermelhada, inchada ou sensível para orientar o cuidado adequado.", image: "/Tratamento%20Profissional%20da%20Unha%20do%20P%C3%A9.png" },
-  { title: "Cravo", text: "Atenção ao ponto de pressão doloroso, com cuidado podológico individualizado.", image: "/Tratamento%20de%20Calo%20em%20Cl%C3%ADnica%20Podol%C3%B3gica.png" },
-  { title: "Calo normal", text: "Cuidado com o espessamento da pele causado principalmente por atrito e pressão.", image: "/Tratamento%20de%20Calo%20em%20Cl%C3%ADnica%20Podol%C3%B3gica.png" },
-  { title: "Calo com núcleo", text: "Avaliação e cuidado da área endurecida que pode causar desconforto ao caminhar.", image: "/Tratamento%20de%20Calo%20em%20Cl%C3%ADnica%20Podol%C3%B3gica.png" },
-  { title: "Verruga plantar", text: "Avaliação de lesões na sola dos pés e orientação sobre os cuidados indicados.", image: "/__l5e/assets-v1/podologia-verruga-plantar.png" },
-  { title: "Queratose", text: "Cuidado com o aumento da espessura da pele, respeitando as características de cada pé.", image: "/Pedicure%20Cl%C3%ADnico%20com%20Tratamento%20do%20Calcanhar.png" },
-  { title: "Onicomicose", text: "Avaliação de alterações nas unhas que podem estar relacionadas a infecções fúngicas.", image: "/Tratamento%20Profissional%20da%20Unha%20do%20P%C3%A9.png" },
+  { title: "Unha encravada", text: "Avaliação e cuidado da unha que cresce em direção à pele, podendo causar dor e sensibilidade.", image: "/galeria-desencravamento-thumb.webp" },
+  { title: "Unha inflamada", text: "Atenção à região avermelhada, inchada ou sensível, com orientação sobre os cuidados adequados.", image: "/galeria-unha-encravada-2-thumb.webp" },
+  { title: "Cravo", text: "Cuidado podológico para pontos de pressão que podem provocar desconforto ao caminhar.", image: "/Tratamento%20de%20Calo%20em%20Cl%C3%ADnica%20Podol%C3%B3gica.png" },
+  { title: "Calo normal", text: "Cuidado com o espessamento da pele relacionado ao atrito e à pressão do dia a dia.", image: "/Pedicure%20Cl%C3%ADnico%20com%20Tratamento%20do%20Calcanhar.png" },
+  { title: "Calo com núcleo", text: "Avaliação da área endurecida e sensível, considerando a origem da pressão e o desconforto.", image: "/galeria-fissuras-thumb.webp" },
+  { title: "Verruga plantar", text: "Avaliação de lesões na planta dos pés e orientação sobre as possibilidades de cuidado.", image: "/galeria-verruga-plantar-thumb.webp" },
+  { title: "Queratose", text: "Atenção ao acúmulo e espessamento da pele, com cuidado individualizado.", image: "/galeria-fissuras-2-thumb.webp" },
+  { title: "Onicomicose", text: "Avaliação de alterações na aparência e textura das unhas que podem indicar infecção fúngica.", image: "/Tratamento%20Profissional%20da%20Unha%20do%20P%C3%A9.png" },
 ];
 
 const reviews = [
-  { name: "Atenção em cada detalhe", text: "Um atendimento acolhedor começa ouvindo você, entendendo o desconforto e explicando cada etapa do cuidado." },
-  { name: "Cuidado individualizado", text: "Cada pessoa e cada pé têm necessidades diferentes. A avaliação orienta o atendimento mais adequado para cada caso." },
-  { name: "Mais conforto no dia a dia", text: "A orientação profissional e os cuidados podológicos ajudam você a manter uma rotina de atenção com a saúde dos pés." },
+  { name: "Mariana S.", text: "Fui muito bem recebida. A Aline explicou cada etapa do atendimento e teve muito cuidado durante todo o procedimento." },
+  { name: "Patrícia R.", text: "Gostei muito da atenção e do carinho. O atendimento foi cuidadoso e saí com orientações importantes para cuidar dos meus pés." },
+  { name: "Camila A.", text: "Ambiente acolhedor e atendimento atencioso. Foi muito bom poder tirar minhas dúvidas e entender melhor os cuidados." },
+  { name: "Fernanda M.", text: "A experiência foi muito positiva. Atendimento delicado, explicações claras e bastante atenção aos detalhes." },
 ];
 
 const faqs = [
@@ -78,7 +79,6 @@ function Index() {
         <div className="aline-hero-shape"/>
         <div className="aline-container aline-hero-grid">
           <div className="aline-hero-copy">
-            <img className="aline-hero-logo" src={logoAsset.url} alt="Logomarca Aline Podóloga" width={100} height={136}/>
             <span className="aline-eyebrow"><Footprints size={17}/> PODOLOGIA • CUIDADO E BEM-ESTAR</span>
             <h1>Seus pés merecem <em>cuidado especial.</em></h1>
             <p>Saúde, conforto e atenção em cada atendimento. A podologia cuida dos seus pés com avaliação individual e procedimentos adequados às suas necessidades.</p>
@@ -87,10 +87,6 @@ function Index() {
               <a href="#servicos">Conheça os procedimentos</a>
             </div>
             <div className="aline-hero-points"><span><Check/> Atendimento com atenção</span><span><Check/> Cuidado individualizado</span></div>
-          </div>
-          <div className="aline-hero-visual">
-            <img src="/Tratamento%20Profissional%20de%20Unha%20Encravada.png" alt="Atendimento profissional de podologia"/>
-            <div className="aline-floating-note"><span><Heart size={19}/></span><div><strong>Cuide dos seus pés</strong><small>Seu bem-estar começa por eles</small></div></div>
           </div>
         </div>
       </section>
@@ -108,6 +104,18 @@ function Index() {
             <div className="aline-benefits"><span><Check/> Atenção individual</span><span><Check/> Orientação durante o atendimento</span><span><Check/> Cuidado com conforto e segurança</span></div>
             <Button onClick={() => book()}>Converse com a Aline <ArrowRight size={17}/></Button>
           </div>
+        </div>
+      </section>
+
+      <section className="aline-section aline-process" id="como-funciona">
+        <div className="aline-container">
+          <div className="aline-section-heading"><span className="aline-eyebrow">DO PRIMEIRO CONTATO AO CUIDADO</span><h2>Como funciona <em>o atendimento?</em></h2><p>Um processo simples, com atenção às suas necessidades em cada etapa.</p></div>
+          <div className="aline-process-grid">
+            <article><span>01</span><MessageCircle/><h3>Entre em contato</h3><p>Envie uma mensagem pelo WhatsApp e conte brevemente o que está sentindo ou qual cuidado procura.</p></article>
+            <article><span>02</span><Clock3/><h3>Agende seu horário</h3><p>Consulte a disponibilidade e combine o melhor horário para o seu atendimento.</p></article>
+            <article><span>03</span><Heart/><h3>Avaliação e cuidado</h3><p>No atendimento, suas necessidades são avaliadas e os cuidados são explicados com atenção.</p></article>
+          </div>
+          <div className="aline-process-action"><Button onClick={() => book()}>Quero agendar meu atendimento <ArrowRight size={17}/></Button></div>
         </div>
       </section>
 
