@@ -1529,3 +1529,53 @@ footer .footer-bottom{border-color:#476b56!important}
  .aline-site .aline-hero-copy>p{text-align:center}
  .aline-site .aline-location-grid>div:first-child{text-align:center}
 }
+
+
+/* CTAs de agendamento: mais destaque e área de toque confortável */
+.aline-site button:not(.aline-faq-item button):not(.aline-whatsapp-float){
+  min-height:58px;
+  padding:17px 30px;
+  font-size:16px;
+  line-height:1.2;
+  font-weight:800;
+  gap:12px;
+}
+.aline-site button:not(.aline-faq-item button):not(.aline-whatsapp-float) svg{
+  width:19px;
+  height:19px;
+  flex:0 0 auto;
+}
+.aline-site .aline-header-cta,
+.aline-site .aline-hero-actions button,
+.aline-site .aline-about-copy button,
+.aline-site .aline-service-cta button,
+.aline-site .aline-homecare button,
+.aline-site .aline-process-action button,
+.aline-site .aline-location-grid button,
+.aline-site .aline-faq-intro button,
+.aline-site .aline-contact-card button{
+  min-height:60px;
+  padding:18px 32px;
+  font-size:16px;
+  box-shadow:0 9px 24px #078e9b2b;
+}
+@media(max-width:680px){
+ .aline-site button:not(.aline-faq-item button):not(.aline-whatsapp-float){
+  min-height:56px;
+  padding:16px 22px;
+  font-size:15px;
+ }
+ .aline-site .aline-header-cta,
+ .aline-site .aline-hero-actions button,
+ .aline-site .aline-about-copy button,
+ .aline-site .aline-service-cta button,
+ .aline-site .aline-homecare button,
+ .aline-site .aline-process-action button,
+ .aline-site .aline-location-grid button,
+ .aline-site .aline-faq-intro button,
+ .aline-site .aline-contact-card button{
+  min-height:58px;
+  padding:17px 24px;
+  font-size:15px;
+ }
+}
