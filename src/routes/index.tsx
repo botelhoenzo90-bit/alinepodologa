@@ -111,9 +111,9 @@ function Index() {
         <div className="aline-container">
           <div className="aline-section-heading"><span className="aline-eyebrow">DO PRIMEIRO CONTATO AO CUIDADO</span><h2>Como funciona <em>o atendimento?</em></h2><p>Um processo simples, com atenção às suas necessidades em cada etapa.</p></div>
           <div className="aline-process-grid">
-            <article><span>01</span><MessageCircle/><h3>Entre em contato</h3><p>Envie uma mensagem pelo WhatsApp e conte brevemente o que está sentindo ou qual cuidado procura.</p></article>
-            <article><span>02</span><Clock3/><h3>Agende seu horário</h3><p>Consulte a disponibilidade e combine o melhor horário para o seu atendimento.</p></article>
-            <article><span>03</span><Heart/><h3>Avaliação e cuidado</h3><p>No atendimento, suas necessidades são avaliadas e os cuidados são explicados com atenção.</p></article>
+            <article><MessageCircle/><h3>Entre em contato</h3><p>Envie uma mensagem pelo WhatsApp e conte brevemente o que está sentindo ou qual cuidado procura.</p></article>
+            <article><Clock3/><h3>Agende seu horário</h3><p>Consulte a disponibilidade e combine o melhor horário para o seu atendimento.</p></article>
+            <article><Heart/><h3>Avaliação e cuidado</h3><p>No atendimento, suas necessidades são avaliadas e os cuidados são explicados com atenção.</p></article>
           </div>
           <div className="aline-process-action"><Button onClick={() => book()}>Quero agendar meu atendimento <ArrowRight size={17}/></Button></div>
         </div>
@@ -141,17 +141,18 @@ function Index() {
         <div className="aline-review-window"><div className="aline-review-track">{[...reviews,...reviews].map((review,i)=><article className="aline-review-card" key={review.name+"-"+i}><div className="aline-stars">{[1,2,3,4,5].map(n=><Star key={n} fill="currentColor" size={17}/>)}</div><h3>{review.name}</h3><p>“{review.text}”</p><span className="aline-review-mark"><Footprints size={19}/> Cliente Aline Podóloga</span></article>)}</div></div>
       </section>
 
-      <section className="aline-section aline-faq" id="duvidas"><div className="aline-container aline-faq-grid">
-        <div className="aline-faq-intro"><span className="aline-eyebrow">DÚVIDAS FREQUENTES</span><h2>Vamos conversar sobre <em>seus pés?</em></h2><p>Confira algumas informações sobre os atendimentos. Se ainda tiver dúvidas, fale diretamente comigo.</p><Button onClick={() => book("Olá, Aline! Tenho uma dúvida sobre os atendimentos de podologia.")}>Tirar dúvidas no WhatsApp <MessageCircle size={17}/></Button></div>
-        <div className="aline-faq-list">{faqs.map(([q,a],i)=><article className={faqOpen===i?"aline-faq-item is-open":"aline-faq-item"} key={q}><button onClick={()=>setFaqOpen(faqOpen===i?null:i)} aria-expanded={faqOpen===i}><span>{q}</span><ChevronDown size={19}/></button>{faqOpen===i&&<p>{a}</p>}</article>)}</div>
-      </div></section>
-
       <section className="aline-section aline-location" id="localizacao">
         <div className="aline-container aline-location-grid">
           <div><span className="aline-eyebrow">ONDE ESTAMOS</span><h2>Localização em <em>São Paulo.</em></h2><p>Consulte pelo WhatsApp o endereço completo, a disponibilidade e as condições de atendimento.</p><div className="aline-location-label"><MapPin/><span><strong>São Paulo — SP</strong><small>Mapa de referência da cidade</small></span></div><Button onClick={() => book("Olá, Aline! Gostaria de confirmar o endereço e a localização do atendimento em São Paulo.")}>Consultar endereço <ArrowRight size={17}/></Button></div>
           <div className="aline-map-frame"><iframe title="Mapa de São Paulo" src="https://www.google.com/maps?q=S%C3%A3o%20Paulo%2C%20SP&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen/></div>
         </div>
       </section>
+
+
+      <section className="aline-section aline-faq" id="duvidas"><div className="aline-container aline-faq-grid">
+        <div className="aline-faq-intro"><span className="aline-eyebrow">DÚVIDAS FREQUENTES</span><h2>Vamos conversar sobre <em>seus pés?</em></h2><p>Confira algumas informações sobre os atendimentos. Se ainda tiver dúvidas, fale diretamente comigo.</p><Button onClick={() => book("Olá, Aline! Tenho uma dúvida sobre os atendimentos de podologia.")}>Tirar dúvidas no WhatsApp <MessageCircle size={17}/></Button></div>
+        <div className="aline-faq-list">{faqs.map(([q,a],i)=><article className={faqOpen===i?"aline-faq-item is-open":"aline-faq-item"} key={q}><button onClick={()=>setFaqOpen(faqOpen===i?null:i)} aria-expanded={faqOpen===i}><span>{q}</span><ChevronDown size={19}/></button>{faqOpen===i&&<p>{a}</p>}</article>)}</div>
+      </div></section>
 
       <section className="aline-contact" id="contato"><div className="aline-container aline-contact-grid">
         <div><span className="aline-eyebrow">VAMOS AGENDAR?</span><h2>Seus pés em boas mãos começam <em>com uma mensagem.</em></h2><p>Entre em contato para tirar dúvidas e consultar os horários disponíveis. Atendimento somente por agendamento.</p><div className="aline-contact-details"><a href={clinicWhatsapp} target="_blank" rel="noreferrer"><MessageCircle/><span><small>WHATSAPP</small><strong>{clinicPhone}</strong></span><ArrowRight/></a><a href={instagram} target="_blank" rel="noreferrer"><Instagram/><span><small>INSTAGRAM</small><strong>@aline_podologa32</strong></span><ArrowRight/></a></div></div>
