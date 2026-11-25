@@ -1721,3 +1721,20 @@ footer .footer-bottom{border-color:#476b56!important}
     border-radius:999px!important;
   }
 }
+
+
+/* Título principal em exatamente duas linhas no mobile */
+.aline-site .aline-mobile-title-break{display:none}
+@media(max-width:680px){
+ .aline-site .aline-mobile-title-break{display:block}
+ .aline-site .aline-hero-copy h1{
+  width:100%;
+  max-width:360px!important;
+  font-size:32px!important;
+  line-height:1.12!important;
+  letter-spacing:-.035em;
+  text-wrap:initial!important;
+  text-align:center;
+ }
+ .aline-site .aline-hero-copy h1 em{white-space:nowrap}
+}
