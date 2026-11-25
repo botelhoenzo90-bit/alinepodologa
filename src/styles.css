@@ -1628,3 +1628,96 @@ footer .footer-bottom{border-color:#476b56!important}
   border-color:var(--aline-dark)!important;
   color:#fff!important;
 }
+
+
+/* Ajustes finais mobile e alinhamento da identidade Aline */
+.aline-site .aline-benefits{
+  justify-items:center;
+  text-align:center;
+}
+.aline-site .aline-benefits span{
+  justify-content:center;
+  text-align:center;
+}
+.aline-site .aline-about-image-placeholder{
+  gap:10px;
+  padding:28px;
+  text-align:center;
+  background:linear-gradient(145deg,#e5f7f7,#f7fcfc);
+}
+.aline-site .aline-about-image-placeholder>span{
+  display:block;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.04em;
+  color:var(--aline-dark);
+}
+.aline-site .aline-about-image-placeholder>small{
+  display:block;
+  font-size:13px;
+  color:var(--aline-muted);
+}
+.aline-site .aline-review-cta button{
+  border-radius:999px!important;
+}
+@media(max-width:680px){
+  .aline-site .aline-header{
+    gap:8px;
+    padding-inline:12px!important;
+  }
+  .aline-site .aline-header-cta{
+    min-height:38px!important;
+    padding:8px 10px!important;
+    gap:5px!important;
+    font-size:11px!important;
+    white-space:nowrap;
+    flex:0 0 auto;
+  }
+  .aline-site .aline-header-cta svg{
+    width:14px!important;
+    height:14px!important;
+  }
+  .aline-site .aline-brand strong{font-size:14px}
+  .aline-site .aline-brand small{font-size:9px}
+  .aline-site .aline-brand-logo{width:31px;height:43px}
+  .aline-site .aline-hero-copy h1{
+    max-width:340px;
+    margin-inline:auto;
+    font-size:36px!important;
+    line-height:1.08!important;
+    text-wrap:balance;
+  }
+  .aline-site .aline-marquee-group{
+    flex:0 0 auto!important;
+    width:auto!important;
+    justify-content:flex-start!important;
+    gap:18px!important;
+    padding:0 18px 0 0!important;
+    white-space:nowrap!important;
+    font-size:12px!important;
+  }
+  .aline-site .aline-marquee-track{
+    width:max-content!important;
+    gap:0!important;
+    animation:aline-marquee 26s linear infinite!important;
+  }
+  .aline-site .aline-section-heading h2{
+    font-size:27px!important;
+    line-height:1.12!important;
+    text-wrap:balance;
+  }
+  .aline-site .aline-benefits{
+    display:flex!important;
+    flex-direction:column;
+    align-items:center!important;
+    gap:12px!important;
+  }
+  .aline-site .aline-benefits span{
+    width:100%;
+    justify-content:center!important;
+  }
+  .aline-site .aline-review-cta button,
+  .aline-site .aline-service-cta button{
+    border-radius:999px!important;
+  }
+}
