@@ -80,7 +80,7 @@ function Index() {
         <div className="aline-container aline-hero-grid">
           <div className="aline-hero-copy">
             <span className="aline-eyebrow"><Footprints size={17}/> PODOLOGIA • CUIDADO E BEM-ESTAR</span>
-            <h1>Seus pés merecem <em>cuidado especial.</em></h1>
+            <h1>Seus pés merecem<br className="aline-mobile-title-break"/> <em>cuidado especial.</em></h1>
             <p>Saúde, conforto e atenção em cada atendimento. A podologia cuida dos seus pés com avaliação individual e procedimentos adequados às suas necessidades.</p>
             <div className="aline-hero-actions">
               <Button onClick={() => book()}>Agende seu atendimento <ArrowRight size={18}/></Button>
