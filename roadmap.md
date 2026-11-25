@@ -1,0 +1,24 @@
+## Ajustes solicitados
+- [x] Deixar em Onde atendo apenas os 3 cartões com mapa integrado (sem os cartões duplicados de cidade) e tirar a nota sobre os registros das unhas na linha exclusiva.
+- [x] Adicionar o mapa de Telêmaco Borba na seção Onde atendo, com as três cidades lado a lado e o pino no endereço exato.
+- [x] Incluir certificado de Biomedicina, dois produtos com fotos e descrições, dois comparativos e nota do processo de marca.
+- [x] Ajustar margens e leitura, foto de Tati, cards compactos, vídeo vertical, textos e posição do atendimento domiciliar.
+- [x] Colocar as 4 fotos reais de certificados no carrossel da seção Formação, com ampliação ao clicar.
+- [x] Misturar as fotos reais de estética (jato de plasma, manchas, cicatrizes, reparo do lobo da orelha) com as de podologia no carrossel de resultados, em ordem embaralhada e sem repetir.
+- [ ] Tati Cubos: retirar indicadores iniciais e numeração, renovar cards com imagens e textos, mover avaliações após Podologia, simplificar produtos e ajustar locais e agendamento.
+- [x] Clarear os fundos em bege, diferenciar Conhecer o processo, corrigir setas laterais e conferir SEO na prévia e no site publicado.
+- [x] Configurar e verificar SEO local, metadados, dados estruturados e sitemap na prévia.
+- [ ] Concluir verificação do Google Search Console e enviar sitemap — SEO e sitemap já publicados; falta uma propriedade verificada do site no Search Console.
+- [x] Aplicar o dourado sem pulsação nos botões e remover a comparação da segunda seção.
+- [x] Colocar fotos da Idalécia, clínica e WhatsApp.
+- [x] Adicionar as imagens disponíveis ao carrossel; manter os demais itens sem fotos até o envio.
+- [x] Ajustar início, dor e solução, avaliações, localização e espaçamentos.
+- [x] Verificar carregamento, alinhamento e navegação.
+- [x] Clarear início e ampliar/acelerar questões sem números.
+- [x] Reunir fotos do atendimento em Um espaço para você.
+- [x] Criar avaliações demonstrativas com estrelas e avatar neutro em esteira.
+- [x] Inserir Google Maps com localização provisória identificada no centro de São Paulo.
+- [x] Adicionar botões nas seções de solução e benefícios; contato verificado.
+- [x] Ajustar identificação dos perfis fictícios sem apresentá-los como pacientes reais.
+- [x] Atualizar endereço e Google Maps para Praça João Pessoa, nº 151 - Centro, Rio Tinto - PB, CEP: 58297-000.
+- [ ] Confirmar carregamento do mapa no site publicado — Google bloqueia a origem localhost usada na verificação.

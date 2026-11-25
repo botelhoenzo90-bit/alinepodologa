@@ -1,0 +1,242 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  ArrowDown, ArrowRight, Award, BadgeCheck, Check, ChevronDown,
+  ChevronLeft, ChevronRight, Clock3, Footprints, Heart, HeartPulse, MapPin,
+  Menu, MessageCircle, Microscope, Package, Play, ShieldCheck, Sparkles, Star,
+  Stethoscope, Syringe, X, Mail, Instagram
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import tatiPortrait from "@/assets/tati-retrato.png.asset.json";
+import { clinicPhone, clinicWhatsapp } from "@/lib/clinic-contact";
+import { clinicLocations, getClinicLocationEmbedUrl, getClinicLocationMapsUrl } from "@/lib/clinic-locations";
+import { aestheticImages, podologyImagesByService, resultImages } from "@/lib/procedure-images";
+import { credentialImages } from "@/lib/credential-images";
+import { ProductLine } from "@/components/product-line";
+
+const siteUrl = "https://tatianecubos.com.br";
+const ogImage = "https://tatianecubos.lovable.app/og-image.jpg";
+const ogImageAlt = "Tati Cubos — Biomédica e Podóloga";
+const whatsapp = clinicWhatsapp;
+const instagram = "https://www.instagram.com/podologa_tati.cubos/";
+const media = "/midia/";
+const publicMedia = "/";
+
+export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
+  head: () => ({
+    meta: [
+      { title: "Tati Cubos | Podologia, Biomedicina Estética e Cosméticos em Curitiba" },
+      { name: "description", content: "Podologia especializada e cuidados estéticos com Tatiane Cubos. Mais de 18 anos de experiência, atendimento em Curitiba, São José dos Pinhais e Telêmaco Borba." },
+      { property: "og:title", content: "Tati Cubos — Podologia, Estética e Cosméticos" },
+      { property: "og:description", content: "Cuidado especializado para a saúde e a beleza dos pés e da pele, com técnica, ciência e acolhimento." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:image", content: ogImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: ogImageAlt },
+      { name: "twitter:image", content: ogImage },
+      { name: "twitter:image:alt", content: ogImageAlt },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "theme-color", content: "#183f2f" },
+    ],
+    links: [{ rel: "canonical", href: siteUrl }],
+  }),
+  component: Index,
+});
+
+const podologyServices = [
+  { title: "Unhas encravadas", text: "Avaliação e manejo técnico da unha, com cuidado para aliviar o desconforto e orientar a prevenção de recorrências.", icon: Footprints },
+  { title: "Órtese ungueal", text: "Recurso aplicado quando indicado para auxiliar na correção da curvatura da unha e acompanhar seu crescimento.", icon: ShieldCheck },
+  { title: "Calos e calosidades", text: "Remoção técnica de áreas espessadas da pele, respeitando as condições e a sensibilidade de cada pé.", icon: HeartPulse },
+  { title: "Fissuras e rachaduras", text: "Cuidado especializado para calcanhares ressecados, com orientação para manter a pele hidratada.", icon: Sparkles },
+  { title: "Micose e frieiras", text: "Avaliação dos sinais nas unhas e na pele, com orientação e encaminhamento quando necessário.", icon: Microscope },
+  { title: "Pés diabéticos", text: "Atenção preventiva e cuidadosa, com avaliação dos riscos e condutas adequadas para cada pessoa.", icon: BadgeCheck },
+  { title: "Podologia infantil", text: "Atendimento paciente e acolhedor, respeitando o ritmo das crianças e suas necessidades.", icon: Heart },
+  { title: "Podologia geriátrica", text: "Cuidado atento à mobilidade, ao conforto e às necessidades dos pés na maturidade.", icon: Stethoscope },
+  { title: "Reconstrução de unhas", text: "Técnica estética aplicada após avaliação das condições da unha e da indicação para o caso.", icon: Sparkles },
+  { title: "Higienização e corte técnico", text: "Limpeza e corte adequados para manter as unhas e os pés bem cuidados.", icon: Check },
+  { title: "Hidratação profunda", text: "Cuidados para melhorar o ressecamento e preservar a maciez e a integridade da pele.", icon: HeartPulse },
+  { title: "Bicho de pé", text: "Avaliação da região afetada e orientação sobre a conduta segura ou o encaminhamento adequado para cada caso.", icon: Microscope },
+  { title: "Chulé e odor nos pés", text: "Orientações de higiene, secagem e cuidados com a pele para ajudar a controlar o odor e reduzir fatores associados.", icon: Sparkles },
+  { title: "Olho de peixe (verruga plantar)", text: "Avaliação de lesões na sola dos pés para orientar o cuidado apropriado e, quando necessário, encaminhar para avaliação médica.", icon: Microscope },
+  { title: "Alterações e infecções da pele", text: "Observação de sinais como vermelhidão, descamação ou desconforto, com orientação e encaminhamento profissional quando indicado.", icon: ShieldCheck },
+  { title: "Ressecamento dos pés", text: "Cuidados para pele áspera e ressecada, com hidratação e recomendações para a rotina em casa.", icon: HeartPulse },
+  { title: "Podologia preventiva", text: "Orientações e cuidados regulares para observar alterações e ajudar a evitar problemas recorrentes.", icon: ShieldCheck },
+];
+
+const aestheticServices = [
+  { title: "Skinbooster", text: "Procedimento injetável voltado à hidratação da pele e à melhora de sua qualidade, após avaliação individual.", icon: Sparkles },
+  { title: "Toxina botulínica", text: "Pode suavizar linhas de expressão em regiões específicas. A indicação depende de avaliação com profissional habilitado.", icon: Syringe },
+  { title: "Melasma e manchas", text: "Avaliação estética para entender os fatores envolvidos e definir opções de cuidado adequadas para a pele.", icon: Microscope },
+  { title: "Linhas finas e textura", text: "Plano individualizado para cuidar da textura, hidratação e aparência da pele, sem promessas de resultado.", icon: Heart },
+  { title: "Jato de plasma", text: "Procedimento estético que deve ser indicado após avaliação individual, com explicação dos cuidados, contraindicações e do período de recuperação.", icon: Sparkles },
+  { title: "Avaliação estética", text: "Uma conversa para conhecer suas queixas, analisar possibilidades e esclarecer benefícios, limites e cuidados.", icon: Stethoscope },
+];
+
+const testimonials = [
+  { name: "Mariana S.", text: "A avaliação da unha encravada foi feita com muito cuidado. Entendi cada etapa do atendimento e saí com orientações para manter os pés bem cuidados." },
+  { name: "Camila R.", text: "Pude falar sobre manchas, textura e o que queria melhorar na pele. Recebi explicações claras sobre as possibilidades e sobre o que fazia sentido para mim." },
+  { name: "Juliana M.", text: "O atendimento foi atencioso do começo ao fim. Gostei de ter um plano pensado para minhas necessidades, com recomendações práticas para continuar o cuidado em casa." },
+];
+
+const gallery = [
+  { title: "Unha encravada", file: "antes-depois-unha-encravada.jpg", desc: "Comparativo antes e depois do tratamento de unha encravada" },
+  { title: "Unha recuperada", file: "antes-depois-unha-recuperada.jpg", desc: "Evolução do cuidado com a unha" },
+  { title: "Verruga plantar", file: "antes-depois-verruga-plantar.jpg", desc: "Comparativo de tratamento de verruga plantar" },
+  { title: "Fissuras no calcanhar", file: "antes-depois-fissuras.jpg", desc: "Cuidado para fissuras e rachaduras" },
+  { title: "Hidratação profunda", file: "antes-depois-hidratacao.jpg", desc: "Comparativo de hidratação profunda" },
+  { title: "Reconstrução de unha", file: "reconstrucao-unha.jpg", desc: "Resultado de reconstrução ungueal" },
+  { title: "Biossegurança", file: "biosseguranca.jpg", desc: "Atendimento com luvas e material descartável" },
+  { title: "Avaliação inicial", file: "avaliacao-inicial.jpg", desc: "Avaliação podológica antes do procedimento" },
+  { title: "Ozonioterapia", file: "equipamento-ozonioterapia.jpg", desc: "Equipamento utilizado em atendimentos indicados" },
+  { title: "Linha própria", file: "emolipro-linha-propria.jpg", desc: "EmoliPro, cosmético podológico Tati Cubos" },
+];
+
+const faq = [
+  ["O tratamento de unha encravada dói?", "A sensibilidade varia conforme cada caso. A Tati avalia a unha, explica a técnica indicada e trabalha com cuidado para minimizar o desconforto."],
+  ["Quantas sessões são necessárias?", "Depende da condição, da evolução e dos cuidados em casa. Após avaliar seu caso, a Tati explica uma previsão individual, sem prometer um número fixo."],
+  ["Quem tem diabetes pode fazer podologia?", "Pessoas com diabetes precisam de atenção específica. Informe seu histórico no agendamento para que a avaliação considere os cuidados e limites adequados."],
+  ["Onde fica o consultório em Curitiba?", "O atendimento em Curitiba é no Centro Cívico, na Rua da Glória, 396 — Sala 4, mediante agendamento."],
+  ["Você atende em casa?", "Sim, há atendimento domiciliar sob consulta de disponibilidade e região. Entre em contato para confirmar as condições do home care."],
+  ["Você também faz manicure e pedicure?", "A atuação inclui manicure especializada e cuidados com unhas. Envie uma mensagem para confirmar o serviço desejado e a disponibilidade."],
+  ["Atende crianças e idosos?", "Sim. O atendimento é adaptado à pessoa, com paciência e atenção às necessidades de crianças, idosos e pessoas que precisam de mais cuidado."],
+  ["Como funciona a parte estética?", "Os procedimentos estéticos são definidos após avaliação. A Tati explica indicações, contraindicações, cuidados e resultados possíveis antes de qualquer decisão."],
+];
+
+function book(message = "Olá, Tati! Gostaria de agendar uma avaliação e saber qual atendimento é indicado para mim.") {
+  window.open(`${whatsapp}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+}
+
+function Index() {
+  const [faqOpen, setFaqOpen] = useState<number | null>(0);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const lightboxImage = lightbox === null ? undefined : gallery[lightbox];
+  const [credentialView, setCredentialView] = useState<number | null>(null);
+
+  return (
+    <main className="tc-site">
+
+
+      <section className="tc-hero" id="inicio">
+        <div className="tc-hero-leaf tc-leaf-one"/><div className="tc-hero-leaf tc-leaf-two"/>
+        <div className="tc-wrap tc-hero-grid">
+          <div className="tc-hero-copy">
+            <div className="tc-logo-placeholder"><img className="tc-official-logo" src="/Logotipo%20Tati%20Cubos%20Verde%20e%20Dourado.png" alt="Logotipo Tati Cubos"/><p className="tc-hero-region">Atendimento em Curitiba e região · São José dos Pinhais e Telêmaco Borba</p></div>
+            <h1>Podologia e biomedicina estética com <em>cuidado, técnica e atenção a você.</em></h1>
+            <p className="tc-hero-detail">Há mais de 18 anos na área da beleza e da saúde, uno experiência, conhecimento e escuta para cuidar dos pés e da pele. Atendo no Centro Cívico, em Curitiba, além de São José dos Pinhais e Telêmaco Borba, com avaliação individual e orientação clara em cada etapa.</p>
+            <div className="tc-hero-actions"><Button variant="siteGold" size="site" onClick={() => book()}>Agendar atendimento <ArrowRight size={18}/></Button></div>
+
+            
+          </div>
+
+        </div>
+        
+      </section>
+
+      <section className="tc-marquee" aria-label="Informações sobre a profissional">
+        <div className="tc-marquee-track">
+          <span>Podologia desde 2018</span><i>✦</i>
+          <span>Biomedicina em 2025</span><i>✦</i>
+          <span>Atendimento humanizado</span><i>✦</i>
+          <span>Curitiba e região</span><i>✦</i>
+          <span>Podologia desde 2018</span><i>✦</i>
+          <span>Biomedicina em 2025</span><i>✦</i>
+          <span>Atendimento humanizado</span><i>✦</i>
+          <span>Curitiba e região</span><i>✦</i>
+        </div>
+      </section>
+
+      <section className="tc-section tc-how" id="como-funciona"><div className="tc-wrap"><div className="tc-section-head tc-section-head-center"><span className="tc-kicker">COMO FUNCIONA</span><h2>Seu cuidado começa <em>com uma boa conversa.</em></h2><p>Um processo claro, acolhedor e pensado para entender o que você precisa.</p></div><div className="tc-how-grid"><article><span>01</span><h3>Você conta</h3><p>Fale sobre o que deseja cuidar, seus sintomas e suas expectativas.</p></article><article><span>02</span><h3>Avaliamos juntos</h3><p>A Tati entende seu caso, explica as opções e esclarece dúvidas.</p></article><article><span>03</span><h3>Plano individual</h3><p>Você recebe orientação sobre o atendimento indicado e os próximos cuidados.</p></article></div><Button variant="siteGold" size="site" onClick={() => book()}>Agendar uma conversa <ArrowRight size={17}/></Button></div></section>
+
+      <section className="tc-section" id="sobre"><div className="tc-wrap tc-about-grid">
+        <div className="tc-about-copy"><span className="tc-kicker">SOBRE MIM</span><h2>Sou a Tati. <em>Seu cuidado começa pela escuta.</em></h2><img className="tc-about-portrait" src={tatiPortrait.url} alt="Tatiane Cubos, podóloga e biomédica" loading="lazy" width="768" height="960"/><p>Trabalho há mais de 18 anos na área da beleza e da saúde, com especialização em Podologia desde 2018 e formação em Biomedicina concluída em 2025.</p><p>Na podologia, meu foco é a saúde dos pés: prevenção, avaliação e cuidado de condições podológicas. Na área estética, a proposta é avaliar a pele e conversar sobre procedimentos possíveis, com informação clara sobre indicações, limites e cuidados.</p><p>Atendo do bebê ao idoso, adaptando o atendimento às necessidades de cada pessoa. Depois da consulta, o cuidado continua com orientações e acompanhamento pelo WhatsApp conforme o caso.</p>
+          <div className="tc-values"><span><Check/> Plano personalizado</span><span><Check/> Formação técnica e científica</span><span><Check/> Orientações pós-atendimento</span><span><Check/> Linha própria de cosméticos</span></div><Button variant="siteGold" size="site" onClick={() => book("Olá, Tati! Gostaria de conhecer melhor seu trabalho e agendar uma avaliação.")}>Vamos conversar <ArrowRight size={17}/></Button>
+        </div>
+      </div></section>
+
+      <section className="tc-section tc-credentials-section" id="formacao">
+        <div className="tc-wrap">
+          <div className="tc-section-head tc-section-head-center">
+            <span className="tc-kicker">FORMAÇÃO E QUALIFICAÇÕES</span>
+            <h2>Conhecimento que fortalece <em>cada cuidado.</em></h2>
+            <p>Conheça minha trajetória profissional, cursos e certificações. Este espaço reúne os certificados para você visualizar minha formação e as qualificações que complementam meu trabalho.</p>
+           </div>
+          <div className="tc-credentials-conveyor" aria-label="Carrossel de certificados e qualificações"><div className="tc-credentials-track">{[...credentialImages, ...credentialImages].map((item, i) => <article className="tc-credential-card" key={item.file + "-" + i}><button type="button" className="tc-credential-image" aria-label={"Ampliar certificado de " + item.title.toLowerCase()} onClick={() => setCredentialView(i % credentialImages.length)}><img src={item.image} alt={"Certificado de " + item.title} loading="lazy" /></button><div className="tc-credential-caption"><span>{item.meta}</span><h3>{item.title}</h3></div></article>)}</div></div>
+        </div>
+      </section>
+
+      <section className="tc-section tc-product-line" id="linha-propria"><div className="tc-wrap tc-product-line-grid"><div className="tc-product-line-copy"><span className="tc-kicker">LINHA EXCLUSIVA</span><h2>Cosméticos podológicos <em>Tati Cubos</em></h2><div className="tc-product-line-visual"><img src="/7d877015-9709-4f95-acb9-28200810ec0b.png" alt="Linha de cosméticos podológicos Tati Cubos" loading="lazy"/></div><p>Uma linha própria para continuar o cuidado dos pés e das unhas em casa, com orientação profissional para cada necessidade.</p>
+          <div className="tc-exclusive-products tc-emollient-details">
+            <article className="tc-exclusive-product"><div className="tc-exclusive-product-copy">
+              <h3>Benefícios do emoliente líquido</h3>
+              <p>Produto destinado a auxiliar no amolecimento da pele espessada, facilitando o cuidado podológico de calosidades e regiões ressecadas. Os benefícios específicos devem ser confirmados no rótulo do produto.</p>
+            </div></article>
+            <article className="tc-exclusive-product"><div className="tc-exclusive-product-copy">
+              <h3>Modo de usar</h3>
+              <p>Para cutículas e calosidades, siga exclusivamente as instruções do rótulo quanto à quantidade, tempo de ação, remoção e necessidade de enxágue. Não foram informados aqui tempos ou formas de aplicação específicos.</p>
+            </div></article>
+            <article className="tc-exclusive-product"><div className="tc-exclusive-product-copy">
+              <h3>Recomendações importantes</h3>
+              <p>Use conforme as orientações do fabricante. Evite contato com os olhos e mucosas e não aplique sobre pele ferida ou irritada. Em caso de reação, suspenda o uso. Confira no rótulo as contraindicações e precauções específicas.</p>
+            </div></article>
+          </div>
+          <Button variant="siteGold" size="site" onClick={()=>book("Olá, Tati! Gostaria de conhecer a linha exclusiva de cosméticos podológicos.")}>Consultar produto <ArrowRight size={17}/></Button></div><ProductLine onContact={book} /></div></section>
+
+
+
+      <section className="tc-section tc-section-soft" id="especialidades"><div className="tc-wrap"><div className="tc-section-head"><span className="tc-kicker">ESPECIALIDADES</span><h2>Do cuidado dos pés à <em>saúde da pele.</em></h2><p>Dois campos de atuação, cada um com sua avaliação e atenção especializada. Escolha o que faz sentido para você.</p></div><div className="tc-specialty-grid">
+        <a className="tc-specialty-card tc-foot-card" href="#podologia"><div className="tc-specialty-icon"><Footprints/></div><span className="tc-card-label">SAÚDE, CONFORTO E PREVENÇÃO</span><h3>Podologia</h3><p>Cuidados clínicos, preventivos e estéticos para unhas e pés, do atendimento infantil ao cuidado geriátrico.</p><span className="tc-card-bottom">Ver serviços <ArrowRight/></span><div className="tc-specialty-decoration"><Footprints/></div></a>
+        <a className="tc-specialty-card tc-skin-card" href="#estetica"><div className="tc-specialty-icon"><Sparkles/></div><span className="tc-card-label">PELE, VIÇO E AUTOESTIMA</span><h3>Biomedicina estética</h3><p>Avaliação individual para conversar sobre procedimentos estéticos faciais e opções de cuidado para a pele.</p><span className="tc-card-bottom">Conhecer a estética <ArrowRight/></span><div className="tc-specialty-decoration"><Sparkles/></div></a>
+      </div></div></section>
+
+      <section className="tc-section tc-section-dark" id="estetica"><div className="tc-wrap">
+        <div className="tc-aesthetic-layout"><div className="tc-aesthetic-intro"><span className="tc-kicker tc-kicker-light">BIOMEDICINA ESTÉTICA</span><h2>Procedimentos estéticos para <em>realçar sua beleza com naturalidade.</em></h2><p>Conheça possibilidades de cuidado para hidratação, linhas de expressão, manchas e qualidade da pele. Cada procedimento é conversado e indicado após uma avaliação individual, considerando seus objetivos, características e segurança.</p><div className="tc-aesthetic-image"><img src={media+"skinbooster.jpg"} alt="Imagem ilustrativa de procedimento estético facial" onError={(e)=>{e.currentTarget.style.display="none";e.currentTarget.parentElement?.classList.add("tc-aesthetic-empty")}}/><div className="tc-aesthetic-fallback"><Sparkles/><strong>Seu procedimento estético</strong><small>Adicione skinbooster.jpg em public/midia</small></div></div><p className="tc-small-note">Os procedimentos são realizados somente quando indicados e dentro das habilitações profissionais aplicáveis. Indicações, contraindicações e resultados variam conforme cada pessoa.</p></div>
+          <div className="tc-aesthetic-services"><div className="tc-conveyor tc-conveyor-aesthetic"><div className="tc-conveyor-track">{[...aestheticServices,...aestheticServices].map((service,i)=>{const Icon=service.icon;return <article className="tc-aesthetic-card" key={service.title+"-"+i}><img className="tc-procedure-image" src={aestheticImages[i % aestheticImages.length]} alt={"Imagem ilustrativa de " + service.title.toLowerCase()} loading="lazy"/><div className="tc-procedure-copy"><h3>{service.title}</h3><p>{service.text}</p></div></article>})}</div></div></div><div className="tc-aesthetic-bottom-cta"><Button variant="siteGold" size="site" onClick={() => book("Olá, Tati! Gostaria de agendar uma avaliação de biomedicina estética.")}>Agendar avaliação estética <ArrowRight size={17}/></Button></div>
+        </div></div></section>
+
+      <section className="tc-section" id="podologia"><div className="tc-wrap">
+        <div className="tc-section-head tc-section-head-row"><div><span className="tc-kicker">PODOLOGIA ESPECIALIZADA</span><h2>Tratamentos podológicos para <em>mais conforto e saúde.</em></h2></div><p>De unhas encravadas e calosidades à prevenção e aos cuidados com a pele: cada atendimento começa com uma avaliação cuidadosa e um plano adequado às suas necessidades.</p></div>
+        
+        <div className="tc-conveyor tc-conveyor-podology"><div className="tc-conveyor-track">{[...podologyServices,...podologyServices].map((service,i)=><article className="tc-service-card" key={service.title+"-"+i}><img className="tc-procedure-image" src={podologyImagesByService[service.title]} alt={"Imagem ilustrativa de "+service.title.toLowerCase()} loading="lazy"/><div className="tc-procedure-copy"><h3>{service.title}</h3><p>{service.text}</p></div></article>)}</div></div>
+        
+        <div className="tc-podology-cta"><Button variant="siteGold" size="site" onClick={() => book("Olá, Tati! Gostaria de agendar uma avaliação de podologia.")}>Agendar avaliação de podologia <ArrowRight size={17}/></Button></div>
+      </div></section>
+
+      <section className="tc-section tc-results-section" id="resultados"><div className="tc-wrap">
+        <div className="tc-section-head tc-section-head-center"><span className="tc-kicker">RESULTADOS E EVOLUÇÃO</span><h2>Veja o cuidado <em>em cada detalhe.</em></h2><p>Um espaço para apresentar fotos reais de antes e depois dos atendimentos de podologia e de biomedicina estética, sempre respeitando a individualidade de cada caso.</p></div>
+        <div className="tc-results-conveyor" aria-label="Carrossel de resultados de podologia e estética"><div className="tc-results-track">{[...resultImages,...resultImages].map((item,i)=><article className="tc-result-card" key={item.title+"-"+i}><div className="tc-result-single-image"><img src={item.image} alt={item.alt} loading="lazy" onError={(e)=>{e.currentTarget.style.display="none";e.currentTarget.parentElement?.classList.add("tc-result-image-empty")}}/></div><div className="tc-result-caption"><span>{item.tag}</span><h3>{item.title}</h3></div></article>)}</div></div>
+        <p className="tc-results-note">Cada caso é único. Os resultados variam conforme a condição inicial, a avaliação e os cuidados indicados.</p>
+        <div className="tc-podology-cta"><Button variant="siteGold" size="site" onClick={() => book("Olá, Tati! Gostaria de agendar uma avaliação de podologia.")}>Agendar avaliação <ArrowRight size={17}/></Button></div>
+      </div></section>
+
+      <section className="tc-section tc-homecare-section" id="domiciliar"><div className="tc-wrap"><div className="tc-homecare"><div className="tc-homecare-icon"><HeartHandshakeIcon/></div><div><span className="tc-kicker">LEVO O CUIDADO ATÉ VOCÊ</span><h3>Atendimento domiciliar (home care)</h3><p>Quando sair de casa não é a melhor opção, consulte a possibilidade de atendimento domiciliar, com materiais e protocolos de biossegurança adequados ao serviço.</p></div><Button variant="siteGold" size="site" onClick={()=>book("Olá, Tati! Gostaria de consultar a disponibilidade de atendimento domiciliar.")}>Consultar disponibilidade <ArrowRight size={16}/></Button></div></div></section>
+
+      <section className="tc-section" id="depoimentos"><div className="tc-wrap"><div className="tc-section-head tc-section-head-center"><span className="tc-kicker">AVALIAÇÕES</span><h2>Experiências de cuidado com <em>atenção em cada detalhe.</em></h2><p>Relatos ilustrativos de pacientes sobre cuidados em Podologia e Biomedicina Estética.</p></div><div className="tc-reviews-layout"><div className="tc-reviews-conveyor"><div className="tc-reviews-track">{[...testimonials,...testimonials].map((review,i)=><article className="tc-review-feature" key={review.name+"-"+i}><div className="tc-review-quote">“</div><div className="tc-review-stars">{[1,2,3,4,5].map(n=><Star key={n} fill="currentColor"/>)}</div><p>“{review.text}”</p><div className="tc-review-author"><span>{review.name.slice(0,1)}</span><div><strong>{review.name}</strong></div></div></article>)}</div></div><div className="tc-review-side"><span className="tc-kicker">CUIDADO QUE VAI ALÉM DA SESSÃO</span><h3>Uma relação construída com <em>confiança e atenção.</em></h3><p>Cada atendimento começa com uma conversa e uma avaliação individual. O objetivo é que você compreenda o cuidado proposto e se sinta à vontade para tirar dúvidas.</p><Button variant="siteGold" size="site" onClick={()=>book()}>Agendar meu atendimento <ArrowRight size={17}/></Button></div></div></div></section>
+
+
+
+      <section className="tc-section tc-video-future" id="video"><div className="tc-wrap tc-video-future-grid"><div className="tc-video-future-copy"><span className="tc-kicker">CONHEÇA MAIS DE PERTO</span><h2>Um pouco do cuidado <em>que você vai encontrar.</em></h2><p>Conheça um pouco mais sobre a Tati, sua abordagem e o cuidado dedicado a cada atendimento.</p><Button variant="siteGold" size="site" onClick={()=>book("Olá, Tati! Gostaria de saber mais sobre seu espaço e os atendimentos.")}>Quero conhecer <ArrowRight size={16}/></Button></div><div className="tc-video-future-frame"><video controls playsInline preload="metadata" poster={tatiPortrait.url}><source src="/Biomedical_podiatrist_explaining%E2%80%A6_20261012111927.mp4" type="video/mp4"/>Seu navegador não suporta a reprodução de vídeo.</video></div></div></section>
+
+      <section className="tc-section tc-section-soft" id="locais"><div className="tc-wrap"><div className="tc-section-head"><span className="tc-kicker">ONDE ATENDO</span><h2>O cuidado está mais perto <em>de você.</em></h2><p>Atendimento mediante agendamento em três cidades do Paraná. Consulte disponibilidade para atendimento domiciliar.</p></div><div className="tc-map-grid">{clinicLocations.map((place)=><article key={place.city}><div className="tc-map-heading"><MapPin/><div><strong>{place.city} · {place.region}</strong><small>{place.address}</small></div></div><iframe title={`Mapa de atendimento em ${place.city}`} src={getClinicLocationEmbedUrl(place)} loading="lazy" referrerPolicy="no-referrer-when-downgrade"/><div className="tc-map-footer"><span><Clock3 size={15}/> Sob agendamento</span><a href={getClinicLocationMapsUrl(place)} target="_blank" rel="noreferrer">Ver no mapa <ArrowRight size={15}/></a></div></article>)}</div></div></section>
+
+
+
+      <section className="tc-section tc-gallery-section" id="galeria" style={{display:"none"}}><div className="tc-wrap"><div className="tc-section-head tc-section-head-row"><div><span className="tc-kicker">GALERIA</span><h2>Detalhes do cuidado, <em>na prática.</em></h2></div><p>Procedimentos, bastidores e evolução dos cuidados. Clique em uma imagem para ampliar.</p></div><div className="tc-gallery-grid">{gallery.map((item,i)=><button className="tc-gallery-item" key={item.file} onClick={()=>setLightbox(i)}><img src={media+item.file} alt={item.desc} onError={(e)=>{e.currentTarget.style.display="none";e.currentTarget.parentElement?.classList.add("tc-gallery-empty")}}/><span className="tc-gallery-fallback"><Footprints/><small>Adicionar imagem</small></span><span className="tc-gallery-caption"><strong>{item.title}</strong><span>Ver imagem <ArrowRight size={14}/></span></span></button>)}</div><p className="tc-gallery-note">Imagens de antes e depois devem ser reais, autorizadas e apresentadas sem edição enganosa. Resultados variam conforme cada caso.</p></div></section>
+
+      <section className="tc-section tc-section-soft" id="duvidas"><div className="tc-wrap tc-faq-layout"><div className="tc-faq-intro"><span className="tc-kicker">DÚVIDAS FREQUENTES</span><h2>Vamos esclarecer <em>suas dúvidas?</em></h2><p>Se sua pergunta não estiver aqui, mande uma mensagem. A Tati responde pessoalmente.</p><Button variant="siteGold" size="site" onClick={()=>book("Olá, Tati! Tenho uma dúvida sobre os atendimentos.")}>Perguntar pelo WhatsApp <MessageCircle size={17}/></Button></div><div className="tc-faq-list">{faq.map(([q,a],i)=><article className={faqOpen===i?"tc-faq-item is-open":"tc-faq-item"} key={q}><button onClick={()=>setFaqOpen(faqOpen===i?null:i)} aria-expanded={faqOpen===i}><span>{q}</span><ChevronDown/></button>{faqOpen===i&&<p>{a}</p>}</article>)}</div></div></section>
+
+      <section className="tc-section tc-contact" id="contato"><div className="tc-wrap tc-contact-grid"><div><span className="tc-kicker tc-kicker-light">ENTRE EM CONTATO</span><h2>Seu próximo passo começa <em>com uma conversa.</em></h2><p>Conte o que você está sentindo ou o que gostaria de cuidar. Vamos conversar sobre o atendimento mais adequado para você.</p><div className="tc-contact-details"><a href={whatsapp} target="_blank" rel="noreferrer"><span><MessageCircle/></span><div><small>WHATSAPP</small><strong>{clinicPhone}</strong></div><ArrowRight/></a><a href="mailto:contato@taticubos.com.br"><span><Mail/></span><div><small>E-MAIL</small><strong>contato@taticubos.com.br</strong></div><ArrowRight/></a><a href={instagram} target="_blank" rel="noreferrer"><span><Instagram/></span><div><small>INSTAGRAM</small><strong>@podologa_tati.cubos</strong></div><ArrowRight/></a></div><p className="tc-contact-hours"><Clock3 size={16}/> Atendimento sob agendamento · Curitiba e região</p></div><div className="tc-contact-form tc-contact-cta"><span className="tc-form-kicker">FALE DIRETAMENTE COM A TATI</span><h3>Vamos conversar?</h3><p>Agende seu atendimento ou tire suas dúvidas diretamente pelo WhatsApp. A Tati responde pessoalmente.</p><Button variant="siteGold" size="site" onClick={()=>book()}>Conversar pelo WhatsApp <ArrowRight size={17}/><span className="tc-button-phone">{clinicPhone}</span></Button><div className="tc-contact-trust"><ShieldCheck/><span>Atendimento individual, com escuta e orientação clara.</span></div></div></div></section>
+
+      <footer className="tc-footer"><div className="tc-wrap"><div className="tc-footer-grid"><div className="tc-footer-about"><a className="tc-brand tc-brand-footer" href="#inicio"><span className="tc-brand-mark"><Footprints/></span><span><strong>Tati Cubos</strong><small>Podologia e Cosméticos</small></span></a><p>Cuidado especializado para a saúde e a beleza dos seus pés e da sua pele, com técnica, ciência e acolhimento.</p></div><div><strong>Navegue</strong><a href="#sobre">Sobre mim</a><a href="#podologia">Podologia</a><a href="#estetica">Biomedicina estética</a><a href="#produtos">Produtos</a><a href="#locais">Onde atendo</a></div><div><strong>Atendimento</strong><span>Curitiba · Centro Cívico</span><span>São José dos Pinhais</span><span>Telêmaco Borba</span><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp: {clinicPhone}</a><a href="mailto:contato@taticubos.com.br">contato@taticubos.com.br</a></div></div><div className="tc-footer-bottom"><span>© 2026 Tati Cubos — Podologia e Cosméticos. Todos os direitos reservados.</span><span>Registro profissional informado: 170107510001/91</span></div><p className="tc-footer-note">Conteúdo informativo. Procedimentos dependem de avaliação individual; imagens e resultados não representam garantia de resultado.</p></div></footer>
+
+      <button className="tc-whatsapp-float" onClick={()=>book()} aria-label="Agendar atendimento pelo WhatsApp"><img src="/whatsapp-logo-CuaKE2hX.png" alt="WhatsApp"/></button>
+      {credentialView!==null&&credentialImages[credentialView]&&<div className="tc-lightbox" role="dialog" aria-modal="true" aria-label={"Certificado: "+credentialImages[credentialView].title} onClick={()=>setCredentialView(null)}><button className="tc-lightbox-close" aria-label="Fechar imagem"><X/></button><button className="tc-lightbox-prev" aria-label="Certificado anterior" onClick={e=>{e.stopPropagation();setCredentialView((credentialView-1+credentialImages.length)%credentialImages.length)}}><ChevronLeft/></button><figure onClick={e=>e.stopPropagation()}><img src={credentialImages[credentialView].image} alt={"Certificado de "+credentialImages[credentialView].title}/><figcaption>{credentialImages[credentialView].title}</figcaption></figure><button className="tc-lightbox-next" aria-label="Próximo certificado" onClick={e=>{e.stopPropagation();setCredentialView((credentialView+1)%credentialImages.length)}}><ChevronRight/></button></div>}
+      {lightbox!==null&&lightboxImage&&<div className="tc-lightbox" role="dialog" aria-modal="true" aria-label={lightboxImage.title} onClick={()=>setLightbox(null)}><button className="tc-lightbox-close" aria-label="Fechar imagem"><X/></button><button className="tc-lightbox-prev" aria-label="Imagem anterior" onClick={e=>{e.stopPropagation();setLightbox((lightbox-1+gallery.length)%gallery.length)}}><ChevronLeft/></button><figure onClick={e=>e.stopPropagation()}><img src={media+lightboxImage.file} alt={lightboxImage.desc}/><figcaption>{lightboxImage.title}</figcaption></figure><button className="tc-lightbox-next" aria-label="Próxima imagem" onClick={e=>{e.stopPropagation();setLightbox((lightbox+1)%gallery.length)}}><ChevronRight/></button></div>}
+    </main>
+  );
+}
+
+function HeartHandshakeIcon() { return <HeartPulse size={28}/>; }
