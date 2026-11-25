@@ -1493,3 +1493,39 @@ footer .footer-bottom{border-color:#476b56!important}
  .aline-site .aline-map-frame{height:300px;border-radius:18px}
  .aline-site .aline-review-disclaimer{font-size:11px}
 }
+
+
+/* Refinamento visual: hero, ícones e alinhamento */
+.aline-site .aline-hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#effafa 0%,#ffffff 88%);border-bottom:1px solid #d9eeee}
+.aline-site .aline-hero-shape{display:none!important}
+.aline-site .aline-hero-copy{margin-inline:auto;text-align:center}
+.aline-site .aline-hero-copy .aline-eyebrow{justify-content:center}
+.aline-site .aline-hero-copy h1,.aline-site .aline-hero-copy>p{text-align:center;margin-left:auto;margin-right:auto}
+.aline-site .aline-hero-actions,.aline-site .aline-hero-points{align-items:center;justify-content:center}
+.aline-site .aline-hero-points span{display:inline-flex;align-items:center;gap:7px}
+.aline-site .aline-hero-points svg{flex:0 0 auto}
+.aline-site .aline-section-heading{text-align:center;margin-inline:auto}
+.aline-site .aline-section-heading .aline-eyebrow{justify-content:center}
+.aline-site .aline-about-icon,.aline-site .aline-process-grid article>svg{display:flex;align-items:center;justify-content:center;margin-left:auto;margin-right:auto}
+.aline-site .aline-about-visual{text-align:center}
+.aline-site .aline-process-grid article{text-align:center}
+.aline-site .aline-process-grid article>svg{margin-top:8px;margin-bottom:18px}
+.aline-site .aline-process-grid h3,.aline-site .aline-process-grid p{text-align:center}
+.aline-site .aline-service-card{text-align:center}
+.aline-site .aline-service-card h3,.aline-site .aline-service-card p{text-align:center}
+.aline-site .aline-service-card .aline-service-icon{margin-inline:auto}
+.aline-site .aline-location-grid>div:first-child{text-align:center}
+.aline-site .aline-location-grid>div:first-child .aline-eyebrow{justify-content:center}
+.aline-site .aline-location-label{justify-content:center}
+.aline-site .aline-location-grid>div:first-child>button{margin-inline:auto}
+.aline-site .aline-faq-grid{align-items:start}
+.aline-site .aline-faq-intro{text-align:center}
+.aline-site .aline-faq-intro .aline-eyebrow{justify-content:center}
+.aline-site .aline-faq-intro button{margin-inline:auto}
+.aline-site .aline-footer-inner>div{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+@media(max-width:680px){
+ .aline-site .aline-hero{background:linear-gradient(180deg,#effafa 0%,#fff 100%);padding-top:54px}
+ .aline-site .aline-hero-copy h1{max-width:100%;text-align:center}
+ .aline-site .aline-hero-copy>p{text-align:center}
+ .aline-site .aline-location-grid>div:first-child{text-align:center}
+}
