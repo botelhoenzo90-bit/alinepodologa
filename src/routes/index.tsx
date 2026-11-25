@@ -139,6 +139,7 @@ function Index() {
       <section className="aline-section aline-reviews" id="avaliacoes">
         <div className="aline-container"><div className="aline-section-heading"><span className="aline-eyebrow">ATENDIMENTO COM CARINHO</span><h2>Cuidar bem faz <em>toda a diferença.</em></h2><p>Uma experiência de atendimento baseada em atenção, escuta e cuidado individual.</p></div></div>
         <div className="aline-review-window"><div className="aline-review-track">{[...reviews,...reviews].map((review,i)=><article className="aline-review-card" key={review.name+"-"+i}><div className="aline-stars">{[1,2,3,4,5].map(n=><Star key={n} fill="currentColor" size={17}/>)}</div><h3>{review.name}</h3><p>“{review.text}”</p><span className="aline-review-mark"><Footprints size={19}/> Cliente Aline Podóloga</span></article>)}</div></div>
+        <div className="aline-review-cta"><Button onClick={() => book("Olá, Aline! Gostaria de agendar meu atendimento de podologia.")}>Agendar pelo WhatsApp <ArrowRight size={17}/></Button></div>
       </section>
 
       <section className="aline-section aline-location" id="localizacao">
