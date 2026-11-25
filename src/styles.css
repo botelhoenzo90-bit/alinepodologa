@@ -1579,3 +1579,38 @@ footer .footer-bottom{border-color:#476b56!important}
   font-size:15px;
  }
 }
+
+
+/* Ajustes de ritmo visual, faixa contínua e cards sem numeração */
+.aline-site .aline-marquee{width:100%;overflow:hidden}
+.aline-site .aline-marquee-track{
+  display:flex;
+  width:max-content;
+  animation:aline-marquee 28s linear infinite!important;
+  animation-play-state:running!important;
+  will-change:transform;
+}
+.aline-site .aline-marquee-group{
+  flex:0 0 100vw;
+  width:100vw;
+  box-sizing:border-box;
+  justify-content:space-evenly;
+  gap:18px;
+  padding:0 22px;
+  white-space:nowrap;
+}
+.aline-site .aline-marquee:hover .aline-marquee-track,
+.aline-site .aline-marquee:focus-within .aline-marquee-track{
+  animation-play-state:running!important;
+}
+.aline-site .aline-section{padding-top:58px;padding-bottom:58px}
+.aline-site .aline-section-heading{margin-bottom:28px}
+.aline-site .aline-service-copy>span{display:none!important}
+.aline-site .aline-service-copy{padding-top:24px}
+.aline-site .aline-homecare{padding-top:38px;padding-bottom:38px}
+@media(max-width:680px){
+  .aline-site .aline-section{padding-top:44px;padding-bottom:44px}
+  .aline-site .aline-section-heading{margin-bottom:22px}
+  .aline-site .aline-marquee-group{gap:14px;padding-inline:16px;font-size:12px}
+  .aline-site .aline-homecare{padding-top:32px;padding-bottom:32px}
+}
