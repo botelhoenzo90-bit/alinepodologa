@@ -17,6 +17,7 @@
 - Keep page-specific SEO metadata and factual business structured data on content routes, using the shared clinic address to avoid conflicting information.
 - Derive sitemap URLs from explicit route staticData.sitemap decisions with the shared sitemap helper, so future public pages stay discoverable without manual URL lists.
 - Keep clinic phone display and WhatsApp destinations in the shared clinic-contact module so booking links cannot diverge from the displayed number.
+- Use the supplied logo asset for header, first-section and footer branding, deriving local browser icons and a share-sized CDN image from the same source to keep brand identity consistent.
 - Import existing procedure illustrations through the shared procedure-images module so both conveyors use project-managed media rather than unrelated remote stock images.
 - Associate podology illustrations by service name in the shared image module, not carousel index, so rearranging cards cannot mismatch their photos.
 - Keep exclusive-product media and brand-process facts in the shared product-line module, rendered by its focused section component, so product presentation and pending-registration status stay consistent.

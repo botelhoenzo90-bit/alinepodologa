@@ -1,4 +1,5 @@
 ## Ajustes solicitados
+- [x] Aline: aplicar logo no topo e rodapé, favicon e compartilhamento; botão flutuante com imagem enviada e telefone +55 71 8648-5830.
 - [x] Deixar em Onde atendo apenas os 3 cartões com mapa integrado (sem os cartões duplicados de cidade) e tirar a nota sobre os registros das unhas na linha exclusiva.
 - [x] Adicionar o mapa de Telêmaco Borba na seção Onde atendo, com as três cidades lado a lado e o pino no endereço exato.
 - [x] Incluir certificado de Biomedicina, dois produtos com fotos e descrições, dois comparativos e nota do processo de marca.

@@ -6,6 +6,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { clinicPhone, clinicWhatsapp } from "@/lib/clinic-contact";
+import logoAsset from "@/assets/aline-logo.png.asset.json";
+import whatsappAsset from "@/assets/aline-whatsapp.png.asset.json";
+import shareAsset from "@/assets/aline-compartilhar.jpg.asset.json";
 
 const instagram = "https://www.instagram.com/aline_podologa32/";
 
@@ -18,6 +21,9 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Aline Podóloga | Cuidado aos seus pés" },
       { property: "og:description", content: "Podologia com atenção, cuidado e atendimento humanizado. Agende seu horário." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: `https://alinepodologa.lovable.app${shareAsset.url}` },
+      { name: "twitter:image", content: `https://alinepodologa.lovable.app${shareAsset.url}` },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:locale", content: "pt_BR" },
       { name: "theme-color", content: "#16a6b5" },
       { name: "robots", content: "index, follow" },
@@ -61,7 +67,7 @@ function Index() {
     <main className="aline-site">
       <header className="aline-header">
         <a className="aline-brand" href="#inicio" aria-label="Aline Podóloga - início">
-          <span className="aline-brand-icon"><Footprints size={30}/></span>
+          <img className="aline-brand-logo" src={logoAsset.url} alt="Logomarca Aline Podóloga" width={48} height={64}/>
           <span><strong>Aline Podóloga</strong><small>cuidado aos seus pés</small></span>
         </a>
         <nav><a href="#sobre">Sobre</a><a href="#servicos">Procedimentos</a><a href="#avaliacoes">Avaliações</a><a href="#contato">Contato</a></nav>
@@ -72,6 +78,7 @@ function Index() {
         <div className="aline-hero-shape"/>
         <div className="aline-container aline-hero-grid">
           <div className="aline-hero-copy">
+            <img className="aline-hero-logo" src={logoAsset.url} alt="Logomarca Aline Podóloga" width={100} height={136}/>
             <span className="aline-eyebrow"><Footprints size={17}/> PODOLOGIA • CUIDADO E BEM-ESTAR</span>
             <h1>Seus pés merecem <em>cuidado especial.</em></h1>
             <p>Saúde, conforto e atenção em cada atendimento. A podologia cuida dos seus pés com avaliação individual e procedimentos adequados às suas necessidades.</p>
@@ -136,8 +143,8 @@ function Index() {
         <div className="aline-contact-card"><span className="aline-contact-card-icon"><Footprints size={42}/></span><h3>Agende seu horário</h3><p>Fale diretamente pelo WhatsApp e consulte a disponibilidade de atendimento.</p><Button onClick={() => book()}>Chamar no WhatsApp <ArrowRight size={18}/></Button><small><Clock3 size={15}/> Atendimento somente por agendamento</small></div>
       </div></section>
 
-      <footer className="aline-footer"><div className="aline-container aline-footer-inner"><a className="aline-brand" href="#inicio"><span className="aline-brand-icon"><Footprints size={28}/></span><span><strong>Aline Podóloga</strong><small>cuidado aos seus pés</small></span></a><p>Podologia com atenção, cuidado e acolhimento.</p><div><a href="#sobre">Sobre</a><a href="#servicos">Procedimentos</a><a href="#avaliacoes">Avaliações</a><a href="#contato">Contato</a></div><span className="aline-copyright">© {new Date().getFullYear()} Aline Podóloga. Todos os direitos reservados.</span></div></footer>
-      <button className="aline-whatsapp-float" onClick={() => book()} aria-label="Agendar atendimento pelo WhatsApp"><MessageCircle size={28}/></button>
+      <footer className="aline-footer"><div className="aline-container aline-footer-inner"><a className="aline-brand" href="#inicio"><img className="aline-brand-logo" src={logoAsset.url} alt="Logomarca Aline Podóloga" width={48} height={64}/><span><strong>Aline Podóloga</strong><small>cuidado aos seus pés</small></span></a><p>Podologia com atenção, cuidado e acolhimento.</p><div><a href="#sobre">Sobre</a><a href="#servicos">Procedimentos</a><a href="#avaliacoes">Avaliações</a><a href="#contato">Contato</a></div><span className="aline-copyright">© {new Date().getFullYear()} Aline Podóloga. Todos os direitos reservados.</span></div></footer>
+      <Button variant="ghost" size="icon" className="aline-whatsapp-float" onClick={() => book()} aria-label="Agendar atendimento pelo WhatsApp" title="Agendar pelo WhatsApp"><img src={whatsappAsset.url} alt="" width={60} height={60}/></Button>
     </main>
   );
 }

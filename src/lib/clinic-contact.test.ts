@@ -3,7 +3,7 @@ import { clinicPhone, clinicWhatsapp } from "./clinic-contact";
 
 describe("Clinic contact", () => {
   it("uses the phone supplied by the clinic for booking", () => {
-    expect(clinicPhone).toBe("+55 41 9977-8493");
-    expect(clinicWhatsapp).toBe("https://wa.me/554199778493");
+    expect(clinicPhone).toBe("+55 71 8648-5830");
+    expect(clinicWhatsapp).toBe("https://wa.me/557186485830");
   });
 });
